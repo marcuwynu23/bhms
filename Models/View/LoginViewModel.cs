@@ -1,5 +1,4 @@
 namespace BHMS.Models;
-
 public class LoginViewModel
 {
     public string? Username { get; set; }

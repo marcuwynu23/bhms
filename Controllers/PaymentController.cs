@@ -9,17 +9,36 @@ namespace BHMS.Controllers;
 [Authorize]
 public class PaymentController : Controller
 {
-    private readonly ILogger<PaymentController> _logger;
-    private readonly DatabaseManager _dbManager = new DatabaseManager();
-
-    public PaymentController(ILogger<PaymentController> logger)
+    private List<Payment> GetPayments()
     {
-        _logger = logger;
+        return new List<Payment>
+        {
+            new Payment
+            {
+                PaymentId = 1,
+                TenantId = 1,
+                Amount = 1000.00m,
+                PaymentDate = DateTime.Now.AddDays(-5),
+                PaymentMethod = "Credit Card",
+                Status = "Paid"
+            },
+            new Payment
+            {
+                PaymentId = 2,
+                TenantId = 2,
+                Amount = 1500.00m,
+                PaymentDate = DateTime.Now.AddDays(-3),
+                PaymentMethod = "Cash",
+                Status = "Paid"
+            },
+            // Add more payments here
+        };
     }
 
     public IActionResult Index()
     {
-        ViewBag.CustomerNames = _dbManager.GetCustomerNamesFromProductsTable();
+        var payments = GetPayments();
+        ViewBag.Payments = payments;
         return View();
     }
 }

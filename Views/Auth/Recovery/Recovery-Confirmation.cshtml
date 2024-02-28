@@ -1,27 +1,31 @@
 @{
-    Layout =  "~/Views/Auth/_AuthLayout.cshtml";
+    Layout = "~/Views/Auth/_AuthLayout.cshtml";
     ViewData["Title"] = "Password Recovery Confirmation";
 }
 
-<div class="card">
-    <div class="card-header">
-        <h3 class="text-center">Password Recovery Confirmation</h3>
-    </div>
+<div class="card p-5 w-50">
+     <div class="card-header">
+    <h5 class="card-title fs-1 text-center fw-bold text-primary">Recovery Confirmation</h5>
+  </div>
     <div class="card-body">
         <form>
-            <div class="form-group">
-                <label for="confirmation-code">Confirmation Code</label>
-                <input type="text" class="form-control" id="confirmation-code" placeholder="Enter your confirmation code">
+            <!-- Confirmation code input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="confirmation-code" class="form-control" />
+                <label class="form-label" for="confirmation-code">Confirmation Code</label>
             </div>
-            <div class="form-group">
-                <label for="new-password">New Password</label>
-                <input type="password" class="form-control" id="new-password" placeholder="Enter your new password">
+            <!-- New password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" id="new-password" class="form-control" />
+                <label class="form-label" for="new-password">New Password</label>
             </div>
-            <div class="form-group">
-                <label for="confirm-new-password">Confirm New Password</label>
-                <input type="password" class="form-control" id="confirm-new-password" placeholder="Confirm your new password">
+            <!-- Confirm new password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" id="confirm-new-password" class="form-control" />
+                <label class="form-label" for="confirm-new-password">Confirm New Password</label>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Confirm Password Recovery</button>
+            <!-- Submit button -->
+            <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Confirm Password Recovery</button>
         </form>
     </div>
 </div>

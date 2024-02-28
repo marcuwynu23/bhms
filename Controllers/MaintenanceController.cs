@@ -9,17 +9,36 @@ namespace BHMS.Controllers;
 [Authorize]
 public class MaintenanceController : Controller
 {
-    private readonly ILogger<MaintenanceController> _logger;
-    private readonly DatabaseManager _dbManager = new DatabaseManager();
-
-    public MaintenanceController(ILogger<MaintenanceController> logger)
+    private List<MaintenanceRequest> GetMaintenanceRequests()
     {
-        _logger = logger;
+        return new List<MaintenanceRequest>
+        {
+            new MaintenanceRequest
+            {
+                RequestId = 1,
+                TenantId = 1,
+                RoomId = 101,
+                RequestDate = DateTime.Now,
+                Description = "Broken faucet in the bathroom",
+                Status = "Pending"
+            },
+            new MaintenanceRequest
+            {
+                RequestId = 2,
+                TenantId = 2,
+                RoomId = 102,
+                RequestDate = DateTime.Now.AddDays(-1),
+                Description = "Light bulb needs replacement",
+                Status = "In Progress"
+            },
+            // Add more maintenance requests here
+        };
     }
 
     public IActionResult Index()
     {
-        ViewBag.CustomerNames = _dbManager.GetCustomerNamesFromProductsTable();
+        var maintenanceRequests = GetMaintenanceRequests();
+        ViewBag.MaintenanceRequests = maintenanceRequests;
         return View();
     }
 }

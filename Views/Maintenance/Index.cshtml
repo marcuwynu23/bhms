@@ -1,7 +1,37 @@
 ﻿@{
-    ViewData["Title"] = "Maintenance Management";
+    ViewData["Title"] = "Maintenance Request Management";
 }
 
-<div class="container bg-white p-4">
- <p class="fs-5 fw-bold">Maintenance Management</p>
+<div class="container p-4">
+    <p class="fs-3 fw-bold">Maintenance Request Management</p>
+    <div class="container p-4 border rounded">
+        <p class="fs-6 fw-bold">Maintenance Request List</p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="fw-bold">#</th>
+                        <th scope="col" class="fw-bold">Tenant ID</th>
+                        <th scope="col" class="fw-bold">Room ID</th>
+                        <th scope="col" class="fw-bold">Request Date</th>
+                        <th scope="col" class="fw-bold">Description</th>
+                        <th scope="col" class="fw-bold">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var request in ViewBag.MaintenanceRequests)
+                    {
+                        <tr>
+                            <th scope="row">@request.RequestId</th>
+                            <td>@request.TenantId</td>
+                            <td>@request.RoomId</td>
+                            <td>@request.RequestDate.ToShortDateString()</td>
+                            <td>@request.Description</td>
+                            <td>@request.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

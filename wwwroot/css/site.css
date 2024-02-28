@@ -12,6 +12,11 @@
   font-family: var(--font);
 }
 
+td,
+a,
+p {
+  font-weight: 400;
+}
 
 
 html {

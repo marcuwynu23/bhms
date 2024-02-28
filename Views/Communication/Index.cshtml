@@ -2,6 +2,29 @@
     ViewData["Title"] = "Communication";
 }
 
-<div class="container bg-white p-4">
-     <p class="fs-5 fw-bold">Communication</p>
+<div class="container p-4">
+    <p class="fs-3 fw-bold">Communication</p>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link fw-bold active" id="announcements-tab" data-toggle="tab" href="#announcements">Announcements</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fw-bold" id="messages-tab" data-toggle="tab" href="#messages">Messages</a>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-3">
+        <div class="tab-pane fade show active" id="announcements" role="tabpanel" aria-labelledby="announcements-tab">
+            <p>This is the content of the Announcements tab.</p>
+            <!-- You can add more content here -->
+        </div>
+        <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+            <p>This is the content of the Messages tab.</p>
+            <!-- You can add more content here -->
+        </div>
+    </div>
+    
 </div>
+
+
+

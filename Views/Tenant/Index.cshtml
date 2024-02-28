@@ -2,6 +2,50 @@
     ViewData["Title"] = "Tenant Management";
 }
 
-<div class="container bg-white p-4">
- <p class="fs-5 fw-bold">Tenant Management</p>
+<div class="container p-4">
+    <p class="fs-3 fw-bold">Tenant Management</p>
+    <div class="container p-4 border rounded">
+        <p class="fs-6 fw-bold">Tenant List</p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="fw-bold">#</th>
+                        <th scope="col" class="fw-bold">First Name</th>
+                        <th scope="col" class="fw-bold">Last Name</th>
+                        <th scope="col" class="fw-bold">Email</th>
+                        <th scope="col" class="fw-bold">Phone Number</th>
+                        <th scope="col" class="fw-bold">Emergency Contact Name</th>
+                        <th scope="col" class="fw-bold">Emergency Contact Number</th>
+                        <th scope="col" class="fw-bold">Lease Start Date</th>
+                        <th scope="col" class="fw-bold">Lease End Date</th>
+                        <th scope="col" class="fw-bold">Rent Amount</th>
+                        <th scope="col" class="fw-bold">Security Deposit</th>
+                        <th scope="col" class="fw-bold">Payment Method</th>
+                        <th scope="col" class="fw-bold">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tenant in ViewBag.Tenants)
+                    {
+                        <tr>
+                            <th scope="row">@tenant.TenantId</th>
+                            <td>@tenant.FirstName</td>
+                            <td>@tenant.LastName</td>
+                            <td>@tenant.Email</td>
+                            <td>@tenant.PhoneNumber</td>
+                            <td>@tenant.EmergencyContactName</td>
+                            <td>@tenant.EmergencyContactNumber</td>
+                            <td>@tenant.LeaseStartDate.ToShortDateString()</td>
+                            <td>@tenant.LeaseEndDate.ToShortDateString()</td>
+                            <td>@tenant.RentAmount</td>
+                            <td>@tenant.SecurityDeposit</td>
+                            <td>@tenant.PaymentMethod</td>
+                            <td>@tenant.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

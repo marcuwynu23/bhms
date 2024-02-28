@@ -1,7 +1,9 @@
 using System.Diagnostics;
 using System.Security.Claims;
+using System.Text.Json;
 using System.Threading.Tasks;
-using BHMS.Models;
+using BHMS.Database;
+using BHMS.Models;      
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +12,11 @@ namespace BHMS.Controllers.Auth;
 
 public class LoginController : Controller
 {
-    private readonly ILogger<LoginController> _logger;
+    private readonly AppDbContext _context;
 
-    public LoginController(ILogger<LoginController> logger)
+    public LoginController(AppDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
     [HttpGet("login")]
@@ -28,24 +30,26 @@ public class LoginController : Controller
     [HttpPost("auth/login")]
     public IActionResult Post(LoginViewModel model)
     {
-        if (model.Username == "admin" && model.Password == "admin")
+        var user = _context.Users.FirstOrDefault(u =>
+            u.Username == model.Username && u.Password == model.Password
+        );
+        if (user != null)
         {
-            Console.WriteLine("true.");
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, model.Username),
+                new Claim(ClaimTypes.Name, user.Username),
                 // Add other claims as needed
             };
-            // Create identity
             var claimsIdentity = new ClaimsIdentity(
                 claims,
                 CookieAuthenticationDefaults.AuthenticationScheme
             );
-            // Sign in the user
             HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(claimsIdentity)
             );
+            // set the user model in session convert to json
+            HttpContext.Session.SetString("User", JsonSerializer.Serialize(user));
 
             return RedirectToAction("Index", "Dashboard");
         }

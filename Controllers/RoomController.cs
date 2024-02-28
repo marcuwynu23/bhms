@@ -17,9 +17,38 @@ public class RoomController : Controller
         _logger = logger;
     }
 
+    private List<Room> GetRooms()
+    {
+        return new List<Room>
+        {
+            new Room
+            {
+                RoomId = 1,
+                RoomNumber = "101",
+                RoomType = "Standard",
+                Description = "Standard room with basic amenities",
+                Amenities = "WiFi, TV, AC",
+                Price = 100.00m,
+                Status = "Available"
+            },
+            new Room
+            {
+                RoomId = 2,
+                RoomNumber = "102",
+                RoomType = "Suite",
+                Description = "Luxurious suite with premium amenities",
+                Amenities = "WiFi, TV, AC, Mini-bar",
+                Price = 200.00m,
+                Status = "Booked"
+            },
+            // Add more rooms here
+        };
+    }
+
     public IActionResult Index()
     {
-        ViewBag.CustomerNames = _dbManager.GetCustomerNamesFromProductsTable();
+        var rooms = GetRooms();
+        ViewBag.Rooms = rooms;
         return View();
     }
 }

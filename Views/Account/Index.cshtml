@@ -1,27 +1,89 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Account";
 }
 
-<div class="container bg-white p-4">
-    <p class="fs-5 fw-bold">Account</p>
 
+@model BHMS.Models.User
+
+<div class="container p-4">
+    <p class="fs-3 fw-bold">Account Settings</p>
     <!-- Update Account Information Form -->
+<div class="w-100">
     <form method="post">
-        <!-- Add form fields for updating account information -->
-        <div class="mb-3">
-            <label for="username" class="form-label">Username:</label>
-            <input type="text" class="form-control" id="username" name="username">
+    <div class="row">
+        <div class="col-md-6">
+        <!-- First Name -->
+        <p class="fw-bold">Personal Information</p>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <!-- viewbag for first name -->
+            
+            <input type="text" class="form-control" id="firstName" name="FirstName" value="@ViewBag.User.FirstName">
+            <label for="firstName" class="form-label">First Name</label>
         </div>
-        <!-- Add more form fields for other account details -->
-        
-        <button type="submit" class="btn btn-primary">Update</button>
-    </form>
+        <!-- Last Name -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" class="form-control" id="lastName" name="LastName" value="@ViewBag.User.LastName">
+            <label for="lastName" class="form-label">Last Name</label>
+        </div>
+        <!-- Email -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="email" class="form-control" id="email" name="Email" value="@ViewBag.User.Email">
+            <label for="email" class="form-label">Email</label>
+        </div>
+        <!-- Phone Number -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" class="form-control" id="phoneNumber" name="PhoneNumber" value="@ViewBag.User.PhoneNumber">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+        </div>
+        <p class="fw-bold">Account Information</p>
+         <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" class="form-control" id="username" name="Username" value="@ViewBag.User.Username">
+            <label for="username" class="form-label">Username</label>
+        </div>
+        <!-- Password -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="password" class="form-control" id="password" name="Password" value="@ViewBag.User.Password">
+            <label for="password" class="form-label">Password</label>
+        </div>   
+        </div>
+        <div class="col-md-6">
+        <p class="fw-bold">Emergency Contact Information</p>
+        <!-- Emergency Contact Name -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" class="form-control" id="emergencyContactName" name="EmergencyContactName" value="@ViewBag.User.EmergencyContactName">
+            <label for="emergencyContactName" class="form-label">Emergency Contact Name</label>
+        </div>
+        <!-- Emergency Contact Number -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" class="form-control" id="emergencyContactNumber" name="EmergencyContactNumber" value="@ViewBag.User.EmergencyContactNumber">
+            <label for="emergencyContactNumber" class="form-label">Emergency Contact Number</label>
+        </div>
 
+        <p class="fw-bold">Role and Status</p>
+        <!-- Role -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" class="form-control" id="role" name="Role" value="@ViewBag.User.Role" >
+            <label for="role" class="form-label">Role</label>
+        </div>
+        <!-- Status -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" class="form-control" id="status" name="Status" value="@ViewBag.User.Status" >
+            <label for="status" class="form-label">Status</label>
+        </div>
+        </div>
+    <div class="col-md-12">
+          <button data-mdb-ripple-init type="submit" class="btn btn-primary">Update Account</button>
+    </div>
+    </form>
+</div>
     <!-- Logout Section -->
     <div class="mt-4">
-       <p class="fs-6 fw-bold">Logout Account</p>
-        <a  asp-area="" asp-controller="login" asp-action="Logout">
-            <i class="fas fa-exit"></i> Logout <!-- Example icon: chart-bar -->
+        <p class="fs-6 fw-bold">Logout Account</p>
+        <!-- add warning message -->
+        <p class="text-danger">Warning: Logging out will end your current session and you will need to log back in to access your account.</p>
+        <a class="btn btn-sm btn-danger" asp-area="" asp-controller="login" asp-action="Logout">
+            <i class="fas fa-door-open"></i> Logout
         </a>
     </div>
 </div>

@@ -1,0 +1,63 @@
+<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary shadow-1  mb-3 p-3">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Dashboard" asp-action="Index">
+                <span class="ms-2 align-middle">BHMS</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                   <ul class="navbar-nav ml-auto">
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="dashboard" asp-action="Index">
+                                <i class="fas fa-chart-line"></i> Dashboard <!-- Example icon: chart-line -->
+                            </a>
+                        
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="room" asp-action="Index">
+                                <i class="fas fa-door-open"></i> Room <!-- Example icon: door-open -->
+                            </a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="tenant" asp-action="Index">
+                                <i class="fas fa-users"></i> Tenant <!-- Example icon: users -->
+                            </a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="communication" asp-action="Index">
+                                <i class="fas fa-comments"></i> Communication <!-- Example icon: comments -->
+                            </a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="maintenance" asp-action="Index">
+                                <i class="fas fa-tools"></i> Maintenance <!-- Example icon: tools -->
+                            </a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="payment" asp-action="Index">
+                                <i class="fas fa-money-bill"></i> Payment <!-- Example icon: money-bill -->
+                            </a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="reports" asp-action="Index">
+                                <i class="fas fa-chart-bar"></i> Reports <!-- Example icon: chart-bar -->
+                            </a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="account" asp-action="Index">
+                                <i class="fas fa-person"></i> Account <!-- Example icon: chart-bar -->
+                            </a>
+                        </li>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" asp-area="" asp-controller="about" asp-action="Index">
+                                <i class="fas fa-info-circle"></i> About <!-- Example icon: info-circle -->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>

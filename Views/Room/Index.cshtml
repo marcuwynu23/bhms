@@ -1,6 +1,39 @@
 ﻿@{
     ViewData["Title"] = "Room Management";
 }
-<div class="container bg-white p-4">
- <p class="fs-5 fw-bold">Room Management</p>
+
+<div class="container p-4">
+    <p class="fs-3 fw-bold">Room Management</p>
+    <div class="container p-4 border rounded">      
+        <p class="fs-6 fw-bold">Room List</p>
+        <div class="table-responsive">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col" class="fw-bold">#</th>      
+                        <th scope="col" class="fw-bold">Room Number</th>
+                        <th scope="col" class="fw-bold">Room Type</th>
+                        <th scope="col" class="fw-bold">Description</th>
+                        <th scope="col" class="fw-bold">Amenities</th>
+                        <th scope="col" class="fw-bold">Price</th>
+                        <th scope="col" class="fw-bold">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var room in ViewBag.Rooms)
+                    {
+                        <tr>
+                            <th scope="row">@room.RoomId</th>
+                            <td>@room.RoomNumber</td>
+                            <td>@room.RoomType</td>
+                            <td>@room.Description</td>
+                            <td>@room.Amenities</td>
+                            <td>@room.Price</td>
+                            <td>@room.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

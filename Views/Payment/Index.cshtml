@@ -1,6 +1,39 @@
-﻿@{
+﻿@model List<BHMS.Models.Payment>
+
+@{
     ViewData["Title"] = "Payment Management";
 }
-<div class="container bg-white p-4">
- <p class="fs-5 fw-bold">Payment Management</p>
+
+<div class="container p-4">
+    <p class="fs-3 fw-bold">Payment Management</p>
+    <div class="container p-4 border rounded">
+        <p class="fs-6 fw-bold">Payment List</p>
+        <div class="table-responsive">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col" class="fw-bold">#</th>
+                        <th scope="col" class="fw-bold">Tenant ID</th>
+                        <th scope="col" class="fw-bold">Amount</th>
+                        <th scope="col" class="fw-bold">Payment Date</th>
+                        <th scope="col" class="fw-bold">Payment Method</th>
+                        <th scope="col" class="fw-bold">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var payment in ViewBag.Payments)
+                    {
+                        <tr>
+                            <th scope="row">@payment.PaymentId</th>
+                            <td>@payment.TenantId</td>
+                            <td>@payment.Amount</td>
+                            <td>@payment.PaymentDate.ToShortDateString()</td>
+                            <td>@payment.PaymentMethod</td>
+                            <td>@payment.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

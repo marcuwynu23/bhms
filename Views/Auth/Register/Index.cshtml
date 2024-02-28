@@ -1,31 +1,47 @@
-﻿@{
-    Layout =  "~/Views/Auth/_AuthLayout.cshtml";
+﻿@{  
+    Layout = "~/Views/Auth/_AuthLayout.cshtml";
     ViewData["Title"] = "Register";
 }
 
-<div class="card">
-    <div class="card-header">
-        <h3 class="text-center">Register</h3>
-    </div>
+@model BHMS.Models.RegisterViewModel
+
+<div class="card p-5 w-50">
+   <div class="card-header">
+    <h5 class="card-title fs-1 text-center fw-bold text-primary">Register</h5>
+  </div>
     <div class="card-body">
-        <form>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username">
+        <form method="POST">
+             <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="FirstName" name="FirstName" class="form-control" placeholder="Enter your first name">
+                 <label class="form-label" for="FirstName">First Name</label>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.FirstName)</span>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+             <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="LastName" name="LastName" class="form-control" placeholder="Enter your last name">
+                <label class="form-label" for="LastName">Last Name</label>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.LastName)</span>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+             <div data-mdb-input-init class="form-outline mb-4">
+                <input type="text" id="Username" name="Username" class="form-control" placeholder="Enter your username">
+                <label class="form-label" for="Username">Username</label>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.Username)</span>
             </div>
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password">
+             <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" id="Email" name="Email" class="form-control" placeholder="Enter your email">
+                <label class="form-label" for="Email">Email</label>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.Email)</span>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+             <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" id="Password" name="Password" class="form-control" placeholder="Enter your password">
+                <label class="form-label" for="Password">Password</label>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.Password)</span>
+            </div>
+             <div data-mdb-input-init class="form-outline mb-4">
+                <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" placeholder="Confirm your password">
+                <label class="form-label" for="ConfirmPassword">Confirm Password</label>
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.ConfirmPassword)</span>
+            </div>
+            <button  data-mdb-ripple-init type="submit" class="btn btn-primary btn-block">Register</button>
         </form>
     </div>
 </div>

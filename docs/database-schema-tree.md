@@ -1,4 +1,4 @@
-1. **Tenants:**
+1. Tenants:
 
    - tenant_id (Primary Key)
    - first_name
@@ -14,7 +14,7 @@
    - payment_method
    - status (active/inactive)
 
-2. **Rooms:**
+2. Rooms:
 
    - room_id (Primary Key)
    - room_number
@@ -24,7 +24,7 @@
    - price
    - status (available/booked)
 
-3. **Payments:**
+3. Payments:
 
    - payment_id (Primary Key)
    - tenant_id (Foreign Key referencing Tenants table)
@@ -33,7 +33,7 @@
    - payment_method
    - status (paid/unpaid)
 
-4. **MaintenanceRequests:**
+4. MaintenanceRequests:
 
    - request_id (Primary Key)
    - tenant_id (Foreign Key referencing Tenants table)
@@ -42,14 +42,14 @@
    - description
    - status (pending/in progress/completed)
 
-5. **Announcements:**
+5. Announcements:
 
    - announcement_id (Primary Key)
    - title
    - content
    - date_created
 
-6. **Messages:**
+6. Messages:
 
    - message_id (Primary Key)
    - sender_id (Foreign Key referencing Tenants or Landlord table)
@@ -59,7 +59,7 @@
    - date_sent
    - status (read/unread)
 
-7. **RoomBookings:**
+7. RoomBookings:
 
    - booking_id (Primary Key)
    - tenant_id (Foreign Key referencing Tenants table)
@@ -69,7 +69,7 @@
    - check_out_date
    - status (confirmed/canceled)
 
-8. **AccessLogs (Optional, for access control management):**
+8. AccessLogs (Optional, for access control management):
 
    - log_id (Primary Key)
    - tenant_id (Foreign Key referencing Tenants table)
@@ -78,7 +78,7 @@
    - access_time
    - access_type (entry/exit)
 
-9. **LaundryBookings (Optional, for laundry management):**
+9. LaundryBookings (Optional, for laundry management):
 
    - booking_id (Primary Key)
    - tenant_id (Foreign Key referencing Tenants table)
@@ -86,7 +86,7 @@
    - time_slot
    - status (confirmed/canceled)
 
-10. **Visitors (Optional, for visitor management):**
+10. Visitors (Optional, for visitor management):
 
     - visitor_id (Primary Key)
     - tenant_id (Foreign Key referencing Tenants table)
@@ -95,9 +95,17 @@
     - check_in_date
     - check_out_date
 
-11. **Reviews (Optional, for tenant reviews):**
+11. Reviews (Optional, for tenant reviews):
+
     - review_id (Primary Key)
     - tenant_id (Foreign Key referencing Tenants table)
     - rating
     - comment
     - date_posted
+
+12. Users:
+    - user_id (Primary Key)
+    - username
+    - password (hashed)
+    - role (e.g., admin, landlord, tenant)
+    - status (active/inactive)
